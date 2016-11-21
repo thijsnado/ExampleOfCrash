@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Koloda
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, KolodaViewDataSource {
+    @IBOutlet weak var kolodaView: KolodaView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        kolodaView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +24,12 @@ class ViewController: UIViewController {
     }
 
 
+    func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
+        return 0
+    }
+
+    func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
+        return UIView()
+    }
 }
 
